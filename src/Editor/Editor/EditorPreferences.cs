@@ -21,6 +21,8 @@ namespace Engine.Editor
             set { _renderQuality = MathUtil.Clamp(value, 0.1f, 1); }
         }
 
+        public bool LimitFramerate { get; set; } = true;
+
         public string GetLastOpenedScene(string project)
         {
             var list = GetProjectSceneHistory(project);

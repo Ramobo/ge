@@ -942,6 +942,12 @@ namespace Engine.Editor
                         _gs.RenderQuality = renderQuality;
                         EditorPreferences.Instance.RenderQuality = renderQuality;
                     }
+                    if (ImGui.RadioButtonBool("Limit Framerate to 60 FPS", EditorPreferences.Instance.LimitFramerate))
+                    {
+                        bool newLimitFramerate = !EditorPreferences.Instance.LimitFramerate;
+                        EditorPreferences.Instance.LimitFramerate = newLimitFramerate;
+                        Program.Game.LimitFrameRate = newLimitFramerate;
+                    }
                     ImGui.EndMenu();
                 }
                 if (ImGui.BeginMenu("GameObject"))
